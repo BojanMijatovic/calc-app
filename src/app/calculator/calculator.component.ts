@@ -6,20 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.scss'],
 })
 export class CalculatorComponent implements OnInit {
-  title = 'Calculator';
-  constructor() {}
-
-  ngOnInit(): void {}
+  public title: string = 'Calculator';
   input: string = '';
   result: string = '';
+  public resultList: string[] = [];
 
-  // localStorage
-  saveData() {
-    localStorage.setItem('calc', this.input);
+  constructor() {}
+
+  ngOnInit(): void {
+    this.resultList = this.getData();
   }
 
-  getData() {
-    return localStorage.getItem('calc');
+  // localStorage
+  public saveData(value: string): void {
+    localStorage.setItem('calc', value);
+  }
+
+  getData(): string[] {
+    return JSON.parse(localStorage.getItem('calc') || '[]');
   }
 
   clearData() {
@@ -69,7 +73,7 @@ export class CalculatorComponent implements OnInit {
     if (this.input.toString().lastIndexOf('/') > pos)
       pos = this.input.lastIndexOf('/');
 
-    return this.input.substr(pos + 1);
+    return this.input.substring(pos + 1);
   }
 
   pressOperator(op: string) {
@@ -90,7 +94,7 @@ export class CalculatorComponent implements OnInit {
 
   clear() {
     if (this.input != '') {
-      this.input = this.input.substr(0, this.input.length - 1);
+      this.input = this.input.substring(0, this.input.length - 1);
     }
   }
 
@@ -128,7 +132,12 @@ export class CalculatorComponent implements OnInit {
     this.calcAnswer();
     this.input = this.result;
     if (this.input == '0') this.input = '';
-    this.saveData();
-    this.getData();
+    this.resultList.push(this.result.toString());
+    this.saveData(JSON.stringify(this.resultList));
+  }
+
+  clearResults() {
+    this.resultList = [];
+    this.clearData();
   }
 }

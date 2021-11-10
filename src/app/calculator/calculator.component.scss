@@ -93,4 +93,40 @@
       padding: 0.5rem;
     }
   }
+
+  .results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    .result-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 0.5rem;
+      .result-title {
+        color: #0e2f44;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+      .result-item {
+        padding: 0.5rem;
+        color: #0e2f44;
+        font-size: 1.8rem;
+      }
+    }
+
+    .btn-clear {
+      width: 100%;
+      border: none;
+      background: #a29890;
+      color: #0e2f44;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem;
+    }
+  }
 }
