@@ -13,12 +13,25 @@ export class CalculatorComponent implements OnInit {
   input: string = '';
   result: string = '';
 
+  // localStorage
+  saveData() {
+    localStorage.setItem('calc', this.input);
+  }
+
+  getData() {
+    return localStorage.getItem('calc');
+  }
+
+  clearData() {
+    localStorage.clear();
+  }
+
+  // number operations
   pressNum(num: string) {
     //Do Not Allow . more than once
     if (num == '.') {
       if (this.input != '') {
         const lastNum = this.getLastOperand();
-        console.log(lastNum.lastIndexOf('.'));
         if (lastNum.lastIndexOf('.') >= 0) return;
       }
     }
@@ -40,7 +53,9 @@ export class CalculatorComponent implements OnInit {
     }
 
     this.input = this.input + num;
+
     this.calcAnswer();
+    this.getData();
   }
 
   getLastOperand() {
@@ -82,6 +97,7 @@ export class CalculatorComponent implements OnInit {
   allClear() {
     this.result = '';
     this.input = '';
+    this.clearData();
   }
 
   calcAnswer() {
@@ -112,5 +128,7 @@ export class CalculatorComponent implements OnInit {
     this.calcAnswer();
     this.input = this.result;
     if (this.input == '0') this.input = '';
+    this.saveData();
+    this.getData();
   }
 }
