@@ -1,0 +1,57 @@
+<div class="container">
+  <div>
+    <h1 class="title">{{ title }}</h1>
+
+    <!-- Displays the user Input -->
+    <p class="result">input value</p>
+    <div class="input-container">
+      <div class="input-value" type="text">
+        {{ input }}
+      </div>
+    </div>
+
+    <!-- Display result value -->
+    <p class="result">result</p>
+    <div class="result-container">
+      <div class="result-value" type="text">{{ result }}</div>
+    </div>
+
+    <div class="btn-container">
+      <div class="btn-operators">
+        <button class="btn" type="button" (click)="allClear()">AC</button>
+        <button class="btn" type="button" (click)="clear()">x</button>
+        <button class="btn" type="button" (click)="pressOperator('/')">
+          &divide;
+        </button>
+        <button class="btn" type="button" (click)="pressOperator('*')">
+          &times;
+        </button>
+      </div>
+      <button class="btn" type="button" (click)="pressNum('9')">9</button>
+      <button class="btn" type="button" (click)="pressNum('8')">8</button>
+      <button class="btn" type="button" (click)="pressNum('7')">7</button>
+
+      <button class="btn" type="button" (click)="pressNum('6')">6</button>
+
+      <button class="btn" type="button" (click)="pressNum('5')">5</button>
+      <button class="btn" type="button" (click)="pressNum('4')">4</button>
+      <button class="btn" type="button" (click)="pressNum('3')">3</button>
+
+      <button class="btn" type="button" (click)="pressNum('2')">2</button>
+      <button class="btn" type="button" (click)="pressNum('1')">1</button>
+      <button class="btn" type="button" (click)="pressNum('0')">0</button>
+
+      <div class="btn-operators">
+        <button class="btn" type="button" (click)="pressOperator('+')">
+          +
+        </button>
+        <button class="btn" type="button" (click)="pressOperator('-')">
+          -
+        </button>
+        <button class="btn" type="button" (click)="pressNum('.')">.</button>
+
+        <button class="btn" type="button" (click)="getAnswer()">=</button>
+      </div>
+    </div>
+  </div>
+</div>

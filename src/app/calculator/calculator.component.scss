@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 4rem 3rem;
+  background: #d6cbc4;
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #0e2f44;
+  }
+
+  .input-container {
+    border: 2px solid #407294;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    width: 100%;
+    height: 2rem;
+    .input-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #0e2f44;
+      width: 100%;
+      height: 100%;
+      text-align: right;
+      padding: 0.5rem;
+    }
+  }
+
+  .result {
+    font-size: 1.8rem;
+    color: #0e2f44;
+    margin-top: 1rem;
+  }
+
+  // result
+  .result-container {
+    border: 2px solid #407294;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    width: 100%;
+    height: 2rem;
+
+    .result-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #0e2f44;
+      width: 100%;
+      height: 100%;
+      text-align: right;
+      padding: 0.5rem;
+    }
+  }
+
+  .btn-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    padding: 0.5rem;
+
+    .btn-operators {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0.5rem;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      background: #a29890;
+      color: #0e2f44;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem;
+    }
+  }
+}
