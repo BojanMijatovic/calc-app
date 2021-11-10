@@ -41,8 +41,8 @@ export class CalculatorComponent implements OnInit {
     }
 
     //Do Not Allow 0 at beginning.
-    if (num == '0') {
-      if (this.input == '') {
+    if (num === '0') {
+      if (this.input === '') {
         return;
       }
       const prevKey = this.input[this.input.length - 1];
@@ -76,7 +76,7 @@ export class CalculatorComponent implements OnInit {
     return this.input.substring(pos + 1);
   }
 
-  pressOperator(op: string) {
+  pressOperator(operator: string) {
     //Do not allow operators more than once
     const lastKey = this.input[this.input.length - 1];
     if (
@@ -88,13 +88,13 @@ export class CalculatorComponent implements OnInit {
       return;
     }
 
-    this.input = this.input + op;
+    this.input = this.input + operator;
     this.calcAnswer();
   }
 
   clear() {
     if (this.input != '') {
-      this.input = this.input.substring(0, this.input.length - 1);
+      this.input = this.input.slice(0, this.input.length - 1);
     }
   }
 
@@ -131,13 +131,17 @@ export class CalculatorComponent implements OnInit {
   getAnswer() {
     this.calcAnswer();
     this.input = this.result;
-    if (this.input == '0') this.input = '';
+    if (this.input == '0') {
+      this.input = '';
+    }
     this.resultList.push(this.result.toString());
     this.saveData(JSON.stringify(this.resultList));
   }
 
   clearResults() {
     this.resultList = [];
+    this.result = '';
+    this.input = '';
     this.clearData();
   }
 }
